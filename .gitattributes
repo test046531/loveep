@@ -6,4 +6,11 @@ db/schema.rb linguist-generated
 # Mark any vendored files as having been vendored.
 vendor/* linguist-vendored
 
+# Handle line endings automatically for different operating systems
 * text=auto
+
+# Ensure that shell scripts and Ruby scripts have LF line endings and are executable on Unix-like systems
+bin/* text eol=lf
+
+# Make sure Unix shell scripts have execute permission on non-Windows platforms
+bin/* eol=lf

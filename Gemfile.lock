@@ -135,8 +135,11 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
+    nokogiri (1.16.7-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.16.7-x64-mingw-ucrt)
       racc (~> 1.4)
+    pg (1.5.8)
     pg (1.5.8-x64-mingw-ucrt)
     psych (4.0.0)
     public_suffix (6.0.1)
@@ -220,6 +223,7 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
+  arm64-darwin-23
   x64-mingw-ucrt
 
 DEPENDENCIES
