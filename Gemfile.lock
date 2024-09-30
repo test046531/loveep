@@ -229,13 +229,15 @@ DEPENDENCIES
   cssbundling-rails
   debug
   dotenv-rails
+  irb (~> 1.13)
   jbuilder
   jsbundling-rails
   mutex_m (= 0.2.0)
   pg (~> 1.1)
-  psych (= 4.0.0)
+  psych (~> 4.0.0)
   puma (~> 5.0)
   rails (~> 7.0.8, >= 7.0.8.4)
+  rdoc (~> 6.6)
   selenium-webdriver
   sprockets-rails
   stimulus-rails

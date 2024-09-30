@@ -76,7 +76,11 @@ end
 
 gem "dotenv-rails", groups: [:development, :test]
 
-gem "psych", "4.0.0"
+gem "psych", "~> 4.0.0"
 
 gem 'bigdecimal', "3.1.8"
 gem 'mutex_m', "0.2.0"
+gem 'rdoc', '~> 6.6'
+# gem 'debug', '~> 1.9'
+gem 'irb', '~> 1.13'
+
