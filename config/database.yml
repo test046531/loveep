@@ -27,6 +27,10 @@ default: &default
 development:
   <<: *default
   database: loveep_development
+  username: postgres   # ここにpostgresユーザー名を指定
+  password: hikamine   # ここに変更したパスワードを記入
+  host: localhost
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
