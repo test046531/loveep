@@ -12,6 +12,11 @@ class PostTest < ActiveSupport::TestCase
     assert_equal @user, @post.user, "postがuserに所属していません"
   end
 
+  # PostImageUploaderはmountされています
+  test "PostImageUploader is mounted" do
+    assert_equal PostImageUploader, @post.image_name.class, "PostImageUploaderがmountされていません"
+  end
+
   # セットアップされた投稿は保存できます
   test "should save valid post" do
     assert @post.valid?, "セットアップされた投稿が保存できません"
