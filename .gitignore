@@ -27,6 +27,14 @@
 
 /public/assets
 /public/uploads
+!/public/uploads/.keep
+
+# Ignore created files in test.
+/test/fixtures/files
+
+# Ignore uploaded files in test.
+/tmp/test
+!/tmp/test/.keep
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

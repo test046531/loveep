@@ -4,7 +4,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   # テストケースのセットアップ
   setup do
     @user = users(:one)
-    @image_path = "test/fixtures/files/test.svg"
+    prepare_test_files
+    create_test_files
   end
 
   # indexアクションのテスト
@@ -27,7 +28,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         post: {
           content: "valid content",
           user_id: @user.id,
-          image_name: fixture_file_upload(@image_path, "image/svg")
+          image_name: fixture_file_upload(@test_svg, "image/svg")
         }
       }
     end
@@ -40,7 +41,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       post: {
         content: "invalid content",
         user_id: @user.id,
-        image_name: fixture_file_upload(@image_path, "image/svg"),
+        image_name: fixture_file_upload(@test_svg, "image/svg"),
         admin: true
       }
     }
@@ -54,7 +55,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         post: {
           content: nil,
           user_id: @user.id,
-          image_name: fixture_file_upload(@image_path, "image/svg")
+          image_name: fixture_file_upload(@test_svg, "image/svg")
         }
       }
     end

@@ -1,3 +1,4 @@
 one:
   content: "valid content"
   user: one
+  image_name: nil
