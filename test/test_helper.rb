@@ -33,6 +33,14 @@ class ActiveSupport::TestCase
     # PDFファイルの作成
     @test_pdf = 'test/fixtures/files/test.pdf'
     File.write(@test_pdf, '%PDF-1.5')
+
+    # 不正なSVGファイルの作成
+    @test_invalid_svg = 'test/fixtures/files/test_invalid.svg'
+    File.write(@test_invalid_svg, '%PDF-1.5')
+
+    # 5MBを超えるSVGファイルの作成
+    @test_large_svg = 'test/fixtures/files/test_large.svg'
+    File.write(@test_large_svg, '<svg>' + 'a' * 5 * 1024 * 1024 + '</svg>')
   end
 
   private
