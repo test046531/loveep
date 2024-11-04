@@ -29,7 +29,7 @@ class PostImageUploaderTest < ActiveSupport::TestCase
   # 画像が指定されない場合はデフォルト画像に設定されます
   test "should set default image if no image is specified" do
     @uploader.store!(nil)
-    assert_equal "../app/assets/images/test.svg", @uploader.url, "デフォルト画像に設定されていません"
+    assert_equal "../app/assets/images/default.svg", @uploader.url, "デフォルト画像に設定されていません"
   end
 
   # 許可されていない拡張子の画像はアップロードできません
