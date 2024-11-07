@@ -22,6 +22,9 @@
     </header>
     <main>
       <%= yield %>
+      <!-- トップに移動する固定ボタン -->
+      <!-- /images/配下にボタン画像arrow.pngをおく -->
+      <img id="fixed_button2top" src="<%= asset_path('arrow.png') %>" alt="ページのトップへ">
     </main>
   </body>
 </html>
