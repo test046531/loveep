@@ -22,7 +22,7 @@
         <% @posts.each do |post| %>
             <div class="posts-index-item">
                 <div class="post-above">
-                    <%= link_to img_tag("post_images/#{post.image_name}"), "#" %>
+                    <%= image_tag(post.image_name.url) if post.image_name? %>
                 </div>
                 <div class="post-under">
                     <%= link_to(post.content, "#") %>

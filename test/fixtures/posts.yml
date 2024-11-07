@@ -1,7 +1,4 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  content: MyText
-
-two:
-  content: MyText
+  content: "valid content"
+  user: one
+  image_name: nil
