@@ -95,3 +95,4 @@ gem 'rails-controller-testing'
 gem 'carrierwave'
 
 gem 'ostruct'
+gem 'base64'
