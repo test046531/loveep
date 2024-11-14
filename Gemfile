@@ -86,3 +86,12 @@ gem 'rdoc', '~> 6.6'
 # gem 'debug', '~> 1.9'
 gem 'irb', '~> 1.13'
 
+gem 'minitest'
+gem 'minitest-reporters'
+gem 'guard'
+gem 'guard-minitest'
+gem 'rails-controller-testing'
+
+gem 'carrierwave'
+
+gem 'ostruct'

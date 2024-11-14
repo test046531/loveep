@@ -6,11 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Loveep</h1>
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "質問一覧",question_path %></li>
+        <li><%= link_to "マイページ",mypage_path %></li>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+      <!-- トップに移動する固定ボタン -->
+      <!-- /images/配下にボタン画像arrow.pngをおく -->
+      <img id="fixed_button2top" src="<%= asset_path('arrow.png') %>" alt="ページのトップへ">
+    </main>
   </body>
 </html>
