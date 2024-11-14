@@ -11,4 +11,3 @@ bundle exec rails assets:clean
 # Uncomment the following line:
 
 bundle exec rails db:migrate
-bundle lock --add-platform x86_64-linux
