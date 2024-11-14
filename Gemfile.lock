@@ -299,6 +299,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  base64
   bigdecimal (= 3.1.8)
   bootsnap
   capybara
