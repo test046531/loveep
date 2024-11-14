@@ -93,3 +93,5 @@ gem 'guard-minitest'
 gem 'rails-controller-testing'
 
 gem 'carrierwave'
+
+gem 'ostruct'
