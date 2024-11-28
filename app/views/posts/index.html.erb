@@ -1,28 +1,15 @@
-<!-- <div class="container card">
-    <h1>Posts#index</h1>
-    <p>Find me in app/views/posts/index.html.erb</p>
-</div>
--->
+<% provide(:title, "Posts") %>
+
+<!-- app/asetts/images配下に/post_images/を作成。投稿の写真を保存する。 -->
 
 <div class="main posts-index">
     投稿一覧
     <div class="container">
         <% @posts.each do |post| %>
             <div class="posts-index-item">
-            <%= post.content %>
-            </div>
-        <% end %>
-    </div>
-</div>
-
-<!-- app/asetts/images配下に/post_images/を作成。投稿の写真を保存する。 -->
-
-<div class="main posts-index">
-    <div class="container">
-        <% @posts.each do |post| %>
-            <div class="posts-index-item">
                 <div class="post-above">
-                    <%= image_tag(post.image_name.url) if post.image_name? %>
+                <!-- 複数画像の1枚目をサムネイルとして表示 -->
+                    <%= image_tag(post.image_names.first) if post.image_names.attached? %>
                 </div>
                 <div class="post-under">
                     <%= link_to(post.content, "#") %>
