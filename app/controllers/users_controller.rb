@@ -9,16 +9,18 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
   
-      if @post.save
+      if @user.save
+        flash[:success] = "ユーザーを作成しました"
         redirect_to posts_path
       else
-        render :new
+        flash[:success] = "ユーザーを作成できませんでした"
+        render :new, status: :unprocessable_entity
       end
     end
   
     private
   
     def user_params
-      params.require(:post).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
   end
