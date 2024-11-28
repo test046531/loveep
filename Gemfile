@@ -73,7 +73,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'rails-controller-testing'
 end
 
 gem "dotenv-rails", groups: [:development, :test]
@@ -86,12 +90,10 @@ gem 'rdoc', '~> 6.6'
 # gem 'debug', '~> 1.9'
 gem 'irb', '~> 1.13'
 
-gem 'minitest'
-gem 'minitest-reporters'
-gem 'guard'
-gem 'guard-minitest'
-gem 'rails-controller-testing'
-
 gem 'carrierwave'
 
 gem 'ostruct'
+
+# paginationを追加する
+gem "will_paginate"
+gem "will_paginate-bootstrap-style"

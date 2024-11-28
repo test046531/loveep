@@ -20,9 +20,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success, "newアクションを正常に実行できません"
   end
 
+  # createアクションのテスト
+  test "should create post" do
+  end
+
   # 許可されたパラメータは受け取ります
   # 投稿後は正常にリダイレクトできます
-  test "should create valid post" do
+  test "should receive valid post" do
     assert_difference "Post.count", 1, "許可されたパラメータが受け取れません" do
       post posts_path, params: {
         post: {
@@ -36,7 +40,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   # 許可されていないパラメータは受け取りません
-  test "should not create invalid post" do
+  test "should not receive invalid post" do
     post posts_path, params: {
       post: {
         content: "invalid content",
