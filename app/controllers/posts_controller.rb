@@ -37,6 +37,7 @@ class PostsController < ApplicationController
       redirect_to user_post_path(@user, @post), notice: "投稿が編集されました"
     else
       render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
