@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :posts
   end
+
   get 'question', to: 'pages#question'
   get 'mypage', to: 'users#mypage'
   get 'posts', to: 'posts#all'
