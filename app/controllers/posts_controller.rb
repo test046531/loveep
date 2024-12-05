@@ -1,21 +1,26 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user
-  before_action :current_user
+  before_action :set_user
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  # Sessionの作成後にコメントアウトを外します
+  # before_action :logged_in_user
+  # before_action :correct_user, only: [:new, :create, :edit, :update, :destory]
 
-  def index
+  def all
     @posts = Post.all
   end
 
+  def index
+    @posts = @user.posts
+  end
+
   def new
-    @post = @current_user.posts.build
+    @post = @user.posts.build
   end
 
   def create
-    @post = @current_user.posts.build(post_params)
+    @post = @user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, notice: "新規投稿に成功しました"
+      redirect_to user_posts_path(@user), notice: "新規投稿に成功しました"
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,28 +34,28 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to edit_post_path(@post), notice: "投稿が編集されました"
+      redirect_to user_post_path(@user, @post), notice: "投稿が編集されました"
     else
       render :edit, status: :unprocessable_entity
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: "投稿が削除されました" # userページができ次第変更します
+    redirect_to user_posts_path(@user), notice: "投稿が削除されました"
   end
 
   private
 
-  def post_params
-    params.require(:post).permit(:content, :user_id, :image_name)
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   def set_post
     @post = Post.find(params[:id])
   end
 
-  def correct_user
-    @user = @post.user
-    redirect_to root_url unless current_user = @user
+  def post_params
+    params.require(:post).permit(:content, :user_id, :image_name)
   end
+
 end
