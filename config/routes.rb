@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  root "home#index"
+  # root "posts#index"
   resources :posts, only: [:index, :new, :create]
   get 'question', to: 'pages#question'
   get 'mypage', to: 'users#mypage'
