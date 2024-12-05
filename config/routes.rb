@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  root "posts#index"
-  resources :posts, only: [:index, :new, :create]
-  resources :users, only: [:new, :create]
+  resources :users do
+    resources :posts
+  end
+
   get 'question', to: 'pages#question'
   get 'mypage', to: 'users#mypage'
+  get 'posts', to: 'posts#all'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
