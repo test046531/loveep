@@ -2,8 +2,8 @@
 <div class="container">
     <div class="main posts-create-form">
         <h1>新規投稿作成</h1>
-
-        <%= form_with model: @post, url: posts_path, method: :post, html: { enctype: "multipart/form-data" } do |f| %>
+        
+        <%= form_with model: @post, url: user_posts_path(@user), html: { enctype: "multipart/form-data" } do |f| %>
 
             <!-- 画像の追加 -->
             <div class="form-group">
@@ -22,10 +22,10 @@
                 </div>
             </div>
 
-            <!-- コメントの追加 -->
+            <!-- 投稿の追加 -->
             <div class="form-group">
-                <label for="comment">コメントを追加</label>
-                <%= f.text_area :comment, id: "comment", class: "form-control", placeholder: "コメントを追加してみましょう。" %>
+                <label for="content">投稿を追加</label>
+                <%= f.text_area :content, id: "content", class: "form-control", placeholder: "投稿を追加してみましょう。" %>
             </div>
 
             <!-- 送信ボタン -->
