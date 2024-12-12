@@ -1,8 +1,30 @@
 <% provide(:title, "Home") %>
 
-<div class="row text-center justify-content-center mb-5">
-  <div class="col">
-    <class="display-3 mt-3" id="homesubtitle">プレゼントで大切な人との愛を深める
-    <h1 class="display-3 mt-3 logo" id="hometitle">loveep</h1>
+<div class="home home-main">
+  <div class="home-message">
+    <div id="homesubtitle">プレゼントで大切な人との愛を深める </div>
+    <h1 class="home logo" id="hometitle">loveep</h1>
+  </div>
+
+  <div class="main home-posts-index">
+      <div class="container">
+          <% if @posts.present? %>
+              <% @posts.each do |post| %>
+                  <div class="posts-index-item">
+                      <div class="post-above">
+                        <% if post.image_name.present? %>
+                          <!-- 画像をクリックしても投稿詳細ページへ -->
+                          <%= link_to '#', class: 'image-link' do %>
+                            <%= image_tag(post.image_name.url) %>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <div class="post-under">
+                          <%= link_to(post.content, "#") %>
+                      </div>
+                  </div>
+              <% end %>
+          <% end %>
+      </div>
   </div>
 </div>

@@ -1,32 +1,26 @@
 <% provide(:title, "Posts") %>
 <div class="main posts-index">
-    投稿一覧
-    <div class="container">
-        <% if @posts.present? %>
-            <% @posts.each do |post| %>
-                <div class="posts-index-item">
-                    <%= post.content %>
-                </div>
+    <h1 class="post logo" id="posttitle">投稿一覧</h1>
+    <div class="main post-posts-index">
+        <div class="container">
+            <% if @posts.present? %>
+                <% @posts.each do |post| %>
+                    <div class="posts-index-item">
+                        <div class="post-above">
+                            <% if post.image_name.present? %>
+                                <!-- 画像をクリックしても投稿詳細ページへ -->
+                                <%= link_to '#', class: 'image-link' do %>
+                                    <%= image_tag(post.image_name.url) %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                        <div class="post-under">
+                            <%= link_to(post.content, "#") %>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
-        <% end %>
+        </div>
     </div>
 </div>
 
-<!-- app/asetts/images配下に/post_images/を作成。投稿の写真を保存する。 -->
-
-<div class="main posts-index">
-    <div class="container">
-        <% if @posts.present? %>
-            <% @posts.each do |post| %>
-                <div class="posts-index-item">
-                    <div class="post-above">
-                        <%= image_tag(post.image_name.url) if post.image_name.present? %>
-                    </div>
-                    <div class="post-under">
-                        <%= link_to(post.content, "#") %>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
-    </div>
-</div>
