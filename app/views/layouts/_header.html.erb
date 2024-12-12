@@ -11,11 +11,13 @@
   <!-- ナビゲーション?メニュー -->
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto">
+    <!--
       <li class="nav-item">
         Test
-      </li>
+      </li> -->
       <%# if logged_in? #%>
         <!-- ログインしている場合 -->
+        <!--
         <li class="nav-item">
           <%#= link_to "マイページ", user_path(current_user), class: "nav-link" %#>
         </li>
@@ -25,8 +27,9 @@
         <li class-"nav-item">
           <%#= link_to "ログアウト", logout_path, class: "nav-link", data: {"turbo-method": :delete, turbo_confirm: "本当にログアウトしますか？"} %#>
         </li>
-      <%# else %#>
+      <%# else %#> -->
         <!-- ログインしてない場合 -->
+        <!--
         <%# if yield(:title) == 'Login' %#>
           <li class="nav-item">
             <%#= link_to "新規登録", users_new_path, class: "nav-link" %#>
@@ -36,7 +39,7 @@
             <%#= link_to "ログイン", login_path, class: "nav-link" %#>
           </li>
         <%# end %#>
-      <%# end %#>
+      <%# end %#> -->
     </ul>
   </div>
 </header>
