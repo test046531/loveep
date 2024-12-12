@@ -2,4 +2,3 @@ one:
   name: One User
   email: one@example.com
   status_message: Do my best!
-  password_digest: password
