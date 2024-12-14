@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :user_id, image_names: [], tags: []) # image_namesを配列として許可
+    params.require(:post).permit(:content, :user_id, :image_name)
   end
 
 end
