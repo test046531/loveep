@@ -22,3 +22,12 @@ User.create!(name:  "Example User",
                password:              password,
                password_confirmation: password)
 end
+
+# 投稿をまとめて生成する
+100.times do |n|
+  content = Faker::Lorem.sentence
+  Post.create!(
+    content: content,
+    user_id: User.order("RANDOM()").first.id
+  )
+end
