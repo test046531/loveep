@@ -16,11 +16,11 @@
 
 <div class="main posts-index">
     <div class="container">
-        <% if @posts %>
+        <% if @posts.present? %>
             <% @posts.each do |post| %>
                 <div class="posts-index-item">
                     <div class="post-above">
-                        <%= image_tag(post.image_name.url) if post.image_name.present? %>
+                        <%= image_tag post.image_name.url %>
                     </div>
                     <div class="post-under">
                         <%= link_to(post.content, user_post_path(@user, post)) %>
