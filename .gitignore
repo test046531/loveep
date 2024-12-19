@@ -26,8 +26,13 @@
 !/tmp/storage/.keep
 
 /public/assets
-/public/uploads
+/public/uploads/**
+
 !/public/uploads/.keep
+!/public/uploads/post/
+!/public/uploads/post/image_name/
+!/public/uploads/post/image_name/0/
+!/public/uploads/post/image_name/0/default.svg
 
 # Ignore created files in test.
 /test/fixtures/files

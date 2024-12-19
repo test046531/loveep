@@ -13,7 +13,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
 
   # デフォルトの画像を指定します
   def default_url
-    "../app/assets/images/default.svg"
+    "/uploads/post/image_name/0/default.svg"
   end
 
   # 許可する画像の拡張子を指定します
