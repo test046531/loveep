@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   end
   get 'question', to: 'pages#question'
   get 'mypage', to: 'users#mypage'
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  get    "/login",   to: "sessions#new"
+  post   "/login",   to: "sessions#create"
+  delete "/logout",  to: "sessions#destroy"
   # root "articles#index"
 end
