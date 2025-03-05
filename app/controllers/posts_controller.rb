@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_user
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  # Sessionの作成後にコメントアウトを外します
-  # before_action :logged_in_user
-  # before_action :correct_user, only: [:new, :create, :edit, :update, :destory]
+  before_action :logged_in_user
+  before_action :correct_user, only: [:new, :create, :edit, :update, :destory]
 
   def index
     @posts = @user.posts
