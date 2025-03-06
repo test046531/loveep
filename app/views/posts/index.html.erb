@@ -1,6 +1,9 @@
 <% provide(:title, "User-Posts") %>
 <div class="user posts-index">
     <h1 class="post logo" id="posttitle"><%= @user.name %>の投稿一覧</h1>
+    <% if current_user?(@user) %>
+      <%= link_to("投稿する", new_user_post_path(@user)) %>
+    <% end %>
     <div class="user post-posts-index">
         <div class="container">
             <% if @posts.present? %>

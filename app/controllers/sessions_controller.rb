@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       reset_session
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       log_in user
-      redirect_to
+      redirect_to user_posts_path(user)
     else
       flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが一致しません'
       render 'new', status: :unprocessable_entity
