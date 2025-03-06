@@ -1,0 +1,14 @@
+<% provide(:title, "Post-detail") %>
+<div class="container">
+    <div>
+        <%= @user.name %>
+    </div>
+    <div>
+        <%= @post.content %>
+    </div>
+    <div>
+        <% if @post.image_name.present? %>
+            <%= image_tag(@post.image_name.url) %>
+        <% end %>
+    </div>
+</div>

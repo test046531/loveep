@@ -9,13 +9,16 @@
                         <div class="post-above">
                             <% if post.image_name.present? %>
                                 <!-- 画像をクリックしても投稿詳細ページへ -->
-                                <%= link_to '#', class: 'image-link' do %>
+                                <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
                                     <%= image_tag(post.image_name.url) %>
                                 <% end %>
                             <% end %>
                         </div>
                         <div class="post-under">
-                            <%= link_to(post.content, "#") %>
+                            <%= link_to(post.content, user_post_path(post.user_id, post)) %>
+                        </div>
+                        <div class="post-name">
+                            <%= link_to(post.user.name, user_posts_path(post.user))%>
                         </div>
                     </div>
                 <% end %>
