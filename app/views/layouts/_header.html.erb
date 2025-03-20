@@ -5,7 +5,6 @@
     navbar-expand-lg→画面サイズがlgになると展開（それ以下では折りたたまれる）
     <%
 =end%>
-
     <div class="container">
         <!-- ロゴやアプリ名 -->
         <%
@@ -14,46 +13,30 @@
         <%
 =end%>
         <%= link_to "loveep", root_path, class: "navbar-brand" %>
-
         <!-- ナビゲーションバーのトグル（レスポンシブ対応） -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- ナビゲーション?メニュー -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <!--
-      <li class="nav-item">
-        Test
-      </li> -->
-      <!-- ログインしている場合 -->
-        <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.name, user_posts_path(current_user), class: "nav-link" %>
-          </li>
-          
-          <!--
-            <li class="nav-item">
-              <%#= link_to "質問一覧", questions_path, class: "nav-link" #%>
-            </li>
-          -->
-
-          <!-- <li class-"nav-item">
-            <%= link_to "ログアウト", logout_path, class: "nav-link", data: {"turbo-method": :delete, turbo_confirm: "本当にログアウトしますか？"} %>
-          </li> -->
-      <!-- ログインしてない場合 -->
-        <% else %>
-          <% if yield(:title) == 'Login' %>
-            <li class="nav-item">
-              <%= link_to "新規登録", signup_path, class: "nav-link" %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "ログイン", login_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        <% end %>
+                <!-- ログインしている場合 -->
+                <% if logged_in? %>
+                <li class="nav-item">
+                    <%= link_to current_user.name, user_posts_path(current_user), class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "ログアウト", logout_path, class: "nav-link", data: {"turbo-method": :delete, turbo_confirm: "本当にログアウトしますか？"} %>
+                </li>
+                <!-- ログインしてない場合 -->
+                <% else %>
+                <li class="nav-item">
+                    <%= link_to "新規登録", signup_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "ログイン", login_path, class: "nav-link" %>
+                </li>
+                <% end %>
             </ul>
         </div>
 </header>
