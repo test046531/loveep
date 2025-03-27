@@ -18,7 +18,7 @@
                             <% end %>
                             <% end %>
                         </div>
-                        <div class="post-under mt-2"><%= link_to(post.content, user_post_path(post.user_id, post)) %></div>
+                        <div class="post-under mt-2"><%= link_to(post.content, user_post_path(post.user_id, post), class: "truncated-text") %></div>
                         <div class="post-name mt-2"><%= link_to(post.user.name, user_posts_path(post.user))%></div>
                     </div>
                 </div>
