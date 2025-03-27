@@ -3,34 +3,37 @@
 <div class="home home-main">
     <div class="home-message">
         <%= image_tag "toppage.jpg", class: "img-fluid w-100", alt: "トップ画像" %>
-        <%
     </div>
 
     <div class="main home-posts-index">
-        <div class="container">
-            <% if @posts.present? %>
-        <% @posts.each do |post| %>
-        <div class="posts-index-item">
-            <div class="post-above">
-                <% if post.image_name.present? %>
-                <!-- 画像をクリックしても投稿詳細ページへ -->
-                <%= link_to '#', class: 'image-link' do %>
-                <%= image_tag(post.image_name.url) %>
+        <div class="container mt-4">
+            <div class="row g-4">
+                <% if @posts.present? %>
+                <% @posts.each do |post| %>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="posts-index-item p-3 shadow rounded">
+                        <div class="post-above">
+                            <% if post.image_name.present? %>
+                            <!-- 画像をクリックしても投稿詳細ページへ -->
+                            <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
+                            <%= image_tag post.image_name.url, class: 'fixed-size-image' %>
+                            <% end %>
+                            <% end %>
+                        </div>
+                        <div class="post-under mt-2">
+                            <%= link_to(post.content, user_post_path(post.user_id, post)) %>
+                        </div>
+                    </div>
+                </div>
                 <% end %>
                 <% end %>
-            </div>
-            <div class="post-under">
-                <%= link_to(post.content, "#") %>
             </div>
         </div>
-        <% end %>
-        <% end %>
     </div>
-</div>
 
-<!-- ボタン部分 -->
-<div class="auth-buttons">
-    <%= link_to "新規会員登録はこちら", signup_path, class: "auth-button register-button" %>
-    <%= link_to "ログイン", login_path, class: "auth-button login-button" %>
-</div>
+    <!-- ボタン部分 -->
+    <div class="auth-buttons">
+        <%= link_to "新規会員登録はこちら", signup_path, class: "auth-button register-button" %>
+        <%= link_to "ログイン", login_path, class: "auth-button login-button" %>
+    </div>
 </div>
