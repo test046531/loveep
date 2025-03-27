@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     end
 
     def posts
-        @posts = Post.all
+        @posts = Post.order(created_at: :desc).page(params[:page]).per(20)  # 20件ごとにページを分ける
     end
 end
