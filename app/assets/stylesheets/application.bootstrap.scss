@@ -16,31 +16,10 @@
     justify-content: space-between;
     align-items: center;
   }
-  // header a {
-  //   color: white; 
-  //   text-decoration: none; 
-  // }
-  // header h1 {
-  //   color: white;
-  //   margin-left: 20px;
-  // }
-  // .header-list {
-  //   display: flex;
-  //   align-items: center;
-  // }
-  // header ul {
-  //   display: flex;
-  // }
-  // header li {
-  //   list-style: none;
-  //   margin-right: 40px;
-  // }
 
-  /* ホームページ */
-  // .home-message {
-  //   background-image: image-url('toppage.jpg');
-  //   background-size: cover; /* 画像全体に表示 */
-  //   background-position: center; /* 画像を中央に */
-  //   background-repeat: no-repeat; /* 繰り返し防止 */
-  //   height: 300px;
-  // }
+  // 画像サイズを固定
+  .fixed-size-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain; // 画像の比率を保つサイズ調整
+  }

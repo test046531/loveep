@@ -8,7 +8,10 @@
     </div>
     <div>
         <% if @post.image_name.present? %>
-            <%= image_tag(@post.image_name.url) %>
+        <%= image_tag(@post.image_name.url, class: 'fixed-size-image') %>
         <% end %>
+    </div>
+    <div class="auth-buttons">
+        <%= link_to "投稿一覧に戻る", user_posts_path(current_user), class: "auth-button register-button" %>
     </div>
 </div>

@@ -2,25 +2,25 @@
 <div class="user posts-index">
     <h1 class="post logo" id="posttitle"><%= @user.name %>の投稿一覧</h1>
     <% if current_user?(@user) %>
-      <%= link_to("投稿する", new_user_post_path(@user)) %>
+    <%= link_to("投稿する", new_user_post_path(@user)) %>
     <% end %>
     <div class="user post-posts-index">
         <div class="container">
             <% if @posts.present? %>
-                <% @posts.each do |post| %>
-                    <div class="posts-index-item">
-                        <div class="post-above">
-                            <% if post.image_name.present? %>
-                                <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
-                                    <%= image_tag(post.image_name.url) %>
-                                <% end %>
-                            <% end %>
-                        </div>
-                        <div class="post-under">
-                            <%= link_to(post.content, user_post_path(post.user_id, post)) %>
-                        </div>
-                    </div>
-                <% end %>
+            <% @posts.each do |post| %>
+            <div class="posts-index-item">
+                <div class="post-above">
+                    <% if post.image_name.present? %>
+                    <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
+                    <%= image_tag post.image_name.url, class: 'fixed-size-image'  %>
+                    <% end %>
+                    <% end %>
+                </div>
+                <div class="post-under">
+                    <%= link_to(post.content, user_post_path(post.user_id, post)) %>
+                </div>
+            </div>
+            <% end %>
             <% end %>
         </div>
     </div>

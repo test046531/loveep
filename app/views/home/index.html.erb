@@ -4,38 +4,33 @@
     <div class="home-message">
         <%= image_tag "toppage.jpg", class: "img-fluid w-100", alt: "トップ画像" %>
         <%
-=begin%>
-        <div id="homesubtitle">プレゼントで大切な人との愛を深める </div>
-        <h1 class="home logo" id="hometitle">loveep</h1>
-        <%
-=end%>
     </div>
 
     <div class="main home-posts-index">
         <div class="container">
             <% if @posts.present? %>
-            <% @posts.each do |post| %>
-            <div class="posts-index-item">
-                <div class="post-above">
-                    <% if post.image_name.present? %>
-                    <!-- 画像をクリックしても投稿詳細ページへ -->
-                    <%= link_to '#', class: 'image-link' do %>
-                    <%= image_tag(post.image_name.url) %>
-                    <% end %>
-                    <% end %>
-                </div>
-                <div class="post-under">
-                    <%= link_to(post.content, "#") %>
-                </div>
+        <% @posts.each do |post| %>
+        <div class="posts-index-item">
+            <div class="post-above">
+                <% if post.image_name.present? %>
+                <!-- 画像をクリックしても投稿詳細ページへ -->
+                <%= link_to '#', class: 'image-link' do %>
+                <%= image_tag(post.image_name.url) %>
+                <% end %>
+                <% end %>
             </div>
-            <% end %>
-            <% end %>
+            <div class="post-under">
+                <%= link_to(post.content, "#") %>
+            </div>
         </div>
+        <% end %>
+        <% end %>
     </div>
+</div>
 
-    <!-- ボタン部分 -->
-    <div class="auth-buttons">
-        <%= link_to "新規会員登録はこちら", signup_path, class: "auth-button register-button" %>
-        <%= link_to "ログイン", login_path, class: "auth-button login-button" %>
-    </div>
+<!-- ボタン部分 -->
+<div class="auth-buttons">
+    <%= link_to "新規会員登録はこちら", signup_path, class: "auth-button register-button" %>
+    <%= link_to "ログイン", login_path, class: "auth-button login-button" %>
+</div>
 </div>
