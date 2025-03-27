@@ -34,3 +34,15 @@
     border-radius: 8px; /* 角を丸くする */
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
   }
+
+  // 新規登録のボタン
+  .new-btn-main{
+    background-color: #AADDE0;
+    border-color: #AADDE0;
+    color: black;
+  }
+
+  .new-btn-main:hover {
+    background-color: #739698;
+    border-color: #739698;
+  }
