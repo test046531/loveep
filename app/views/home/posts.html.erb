@@ -1,12 +1,9 @@
-<% provide(:title, "User-Posts") %>
-<div class="user posts-index">
-    <h1 class="post logo my-2"><%= @user.name %>の投稿一覧</h1>
-    <% if current_user?(@user) %>
-    <div class="auth-buttons my-4">
-        <%= link_to "＋ 新規投稿作成", new_user_post_path(@user), class: "btn btn-newpost btn-lg my-2 mx-4" %>
-    </div>
-    <% end %>
-    <div class="user post-posts-index">
+<% provide(:title, "Home-Posts") %>
+
+<div class="main posts-index">
+    <h1 class="post-logo mt-2">投稿一覧</h1>
+
+    <div class="main posts-index">
         <div class="container mt-4">
             <div class="row g-4">
                 <% if @posts.present? %>
@@ -15,14 +12,14 @@
                     <div class="posts-index-item p-3 shadow rounded">
                         <div class="post-above">
                             <% if post.image_name.present? %>
+                            <!-- 画像をクリックしても投稿詳細ページへ -->
                             <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
-                            <%= image_tag post.image_name.url, class: 'fixed-size-image'  %>
+                            <%= image_tag post.image_name.url, class: 'fixed-size-image' %>
                             <% end %>
                             <% end %>
                         </div>
-                        <div class="post-under mt-2">
-                            <%= link_to(post.content, user_post_path(post.user_id, post), class: "truncated-text") %>
-                        </div>
+                        <div class="post-under mt-2"><%= link_to(post.content, user_post_path(post.user_id, post), class: "truncated-text") %></div>
+                        <div class="post-name mt-2"><%= link_to(post.user.name, user_posts_path(post.user))%></div>
                     </div>
                 </div>
                 <% end %>

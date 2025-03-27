@@ -1,0 +1,26 @@
+<% provide(:title, "Create-Post") %>
+<h1 class="text-center page-title mt-4">新規投稿作成</h1>
+
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+        <%= form_with model: @post, url: user_posts_path(@user), html: { enctype: "multipart/form-data" } do |f| %>
+
+        <!-- 画像の追加 -->
+        <label for="iamge-upload" , class="my-2">画像を追加</label>
+        <%= f.file_field :image_name, id: "image-upload", class: "form-control" %>
+
+        <!-- タグの追加 -->
+        <%= f.label :tags, "タグを追加", class: "form-label mt-2"%>
+        <%= f.text_field :tags, class: 'form-control' %>
+
+        <!-- 投稿の追加 -->
+        <%= f.label :content, "投稿を追加", class: "form-label mt-2"%>
+        <%= f.text_area :content, id: "content", class: "form-control", placeholder: "投稿を追加してみましょう。" %>
+
+        <!-- 送信ボタン -->
+        <div class="d-flex justify-content-center mt-4">
+            <%= f.submit "投稿する", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
+</div>

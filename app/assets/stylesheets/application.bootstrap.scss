@@ -16,22 +16,65 @@
     justify-content: space-between;
     align-items: center;
   }
-  header a {
-    color: white; 
-    text-decoration: none; 
+
+  // 画像サイズを固定
+  .fixed-size-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain; // 画像の比率を保つサイズ調整
   }
-  header h1 {
-    color: white;
-    margin-left: 20px;
+
+  // 投稿詳細ページの画像
+  .show-post-image{
+    max-width: 100%;  /* コンテナ幅を超えない */
+    max-height: 400px; /* 画像の最大高さを400pxに設定 */
+    width: auto;       /* アスペクト比を維持 */
+    height: auto;      /* アスペクト比を維持 */
+    object-fit: contain; /* 画像の比率を崩さず収める */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
   }
-  .header-list {
-    display: flex;
-    align-items: center;
+
+  // 新規登録のボタン
+  .new-btn-main{
+    background-color: #AADDE0;
+    border-color: #AADDE0;
+    color: black;
   }
-  header ul {
-    display: flex;
+
+  .new-btn-main:hover {
+    background-color: #739698;
+    border-color: #739698;
   }
-  header li {
-    list-style: none;
-    margin-right: 40px;
+
+  // ホームページの新規会員登録、ログインのボタン
+  .btn-primary{
+    background-color: #AADDE0;
+    border-color: #AADDE0;
+    color: black;
+  }
+
+  .btn-primary:hover {
+    background-color: #739698;
+    border-color: #739698;
+  }
+
+  // 新規投稿作成ボタン
+  .btn-newpost{
+    background-color: #AADDE0;
+    border-color: #AADDE0;
+    color: black;
+  }
+
+  .btn-newpost:hover{
+    background-color: #739698;
+    border-color: #739698;
+  }
+
+  .truncated-text {
+    display: block;
+    white-space: nowrap; /* テキストを1行に収める */
+    overflow: hidden;    /* 溢れた部分を非表示 */
+    text-overflow: ellipsis; /* 省略記号を表示 */
+    width: 100%;
   }
