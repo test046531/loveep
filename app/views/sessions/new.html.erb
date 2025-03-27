@@ -1,21 +1,29 @@
 <% provide(:title, "Login") %>
-<h1>ログイン</h1>
+<h1 class="text-center page-title mt-4">ログイン</h1>
 
-<div>
-    <%= form_with(url: login_path, scope: :session) do |f| %>
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email %>
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+        <%= form_with(url: login_path, scope: :session) do |f| %>
+        <%= f.label :email, "メールアドレス", class: "form-label mt-2" %>
+        <%= f.email_field :email, class: 'form-control' %>
 
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password %>
+        <%= f.label :password, "パスワード", class: "form-label mt-2" %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-    <%= f.label :remember_me do %>
-    <%= f.check_box :remember_me %>
-    <span>ログイン情報を記録する</span>
-    <% end %>
+        <div class="mt-3">
+            <%= f.label :remember_me do %>
+            <%= f.check_box :remember_me %>
+            <span>ログイン情報を記録する</span>
+            <% end %>
+        </div>
 
-    <%= f.submit "ログイン"%>
-    <% end %>
+        <div class="d-flex justify-content-center mt-2">
+            <%= f.submit "ログイン", class: "btn new-btn-main w-60 py-2"%>
+        </div>
+        <% end %>
 
-    <p>まだ登録していませんか？ <%= link_to "新規登録", signup_path %></p>
+        <div class="mt-4 d-flex justify-content-center">
+            <p>まだ登録していませんか？ <%= link_to "新規登録", signup_path %></p>
+        </div>
+    </div>
 </div>
