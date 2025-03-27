@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create] do
     resources :posts
   end
+
   get 'question', to: 'pages#question'
   get 'mypage', to: 'users#mypage'
   get 'signup', to: 'users#new'
