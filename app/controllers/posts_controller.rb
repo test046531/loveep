@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:new, :create, :edit, :update, :destory]
 
   def index
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(20)  # 20件ごとにページを分ける
   end
 
   def new

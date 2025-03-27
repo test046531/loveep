@@ -1,27 +1,38 @@
 <% provide(:title, "User-Posts") %>
 <div class="user posts-index">
-    <h1 class="post logo" id="posttitle"><%= @user.name %>の投稿一覧</h1>
+    <h1 class="post logo my-2"><%= @user.name %>の投稿一覧</h1>
     <% if current_user?(@user) %>
-    <%= link_to("投稿する", new_user_post_path(@user)) %>
+    <div class="auth-buttons my-4">
+        <%= link_to "＋ 新規投稿作成", new_user_post_path(@user), class: "btn btn-newpost btn-lg my-2 mx-4" %>
+    </div>
     <% end %>
     <div class="user post-posts-index">
-        <div class="container">
-            <% if @posts.present? %>
-            <% @posts.each do |post| %>
-            <div class="posts-index-item">
-                <div class="post-above">
-                    <% if post.image_name.present? %>
-                    <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
-                    <%= image_tag post.image_name.url, class: 'fixed-size-image'  %>
-                    <% end %>
-                    <% end %>
+        <div class="container mt-4">
+            <div class="row g-4">
+                <% if @posts.present? %>
+                <% @posts.each do |post| %>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="posts-index-item p-3 shadow rounded">
+                        <div class="post-above">
+                            <% if post.image_name.present? %>
+                            <%= link_to user_post_path(post.user_id, post), class: 'image-link' do %>
+                            <%= image_tag post.image_name.url, class: 'fixed-size-image'  %>
+                            <% end %>
+                            <% end %>
+                        </div>
+                        <div class="post-under mt-2">
+                            <%= link_to(post.content, user_post_path(post.user_id, post)) %>
+                        </div>
+                    </div>
                 </div>
-                <div class="post-under">
-                    <%= link_to(post.content, user_post_path(post.user_id, post)) %>
-                </div>
+                <% end %>
+                <% end %>
             </div>
-            <% end %>
-            <% end %>
+
+            <div class="pagination mt-4">
+                <%= paginate @posts %>
+                <!-- ページネーションの表示 -->
+            </div>
         </div>
     </div>
 </div>
