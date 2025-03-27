@@ -23,3 +23,14 @@
     height: 200px;
     object-fit: contain; // 画像の比率を保つサイズ調整
   }
+
+  // 投稿詳細ページの画像
+  .show-post-image{
+    max-width: 100%;  /* コンテナ幅を超えない */
+    max-height: 400px; /* 画像の最大高さを400pxに設定 */
+    width: auto;       /* アスペクト比を維持 */
+    height: auto;      /* アスペクト比を維持 */
+    object-fit: contain; /* 画像の比率を崩さず収める */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+  }
