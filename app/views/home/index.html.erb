@@ -22,7 +22,7 @@
                             <% end %>
                         </div>
                         <div class="post-under mt-2">
-                            <%= link_to(post.content, user_post_path(post.user_id, post)) %>
+                            <%= link_to post.content, user_post_path(post.user_id, post), class: "truncated-text" %>
                         </div>
                     </div>
                 </div>
