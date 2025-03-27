@@ -70,3 +70,11 @@
     background-color: #739698;
     border-color: #739698;
   }
+
+  .truncated-text {
+    display: block;
+    white-space: nowrap; /* テキストを1行に収める */
+    overflow: hidden;    /* 溢れた部分を非表示 */
+    text-overflow: ellipsis; /* 省略記号を表示 */
+    width: 100%;
+  }
